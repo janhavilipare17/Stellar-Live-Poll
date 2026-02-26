@@ -1,7 +1,7 @@
-/* ── Fonts ─────────────────────────────────────────────────────────────────── */
+/* Fonts  */
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap');
 
-/* ── Variables ─────────────────────────────────────────────────────────────── */
+/*  Variables */
 :root {
   --bg: #080b14;
   --surface: #0e1420;
@@ -26,7 +26,7 @@
   --radius-sm: 8px;
 }
 
-/* ── Reset ─────────────────────────────────────────────────────────────────── */
+/* Reset  */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
@@ -37,7 +37,7 @@ body {
   overflow-x: hidden;
 }
 
-/* ── Background Orbs ───────────────────────────────────────────────────────── */
+/*  Background  */
 .app {
   position: relative;
   min-height: 100vh;
@@ -93,7 +93,7 @@ body {
   50% { transform: translate(-50%, -50%) scale(1.2); }
 }
 
-/* ── Layout ────────────────────────────────────────────────────────────────── */
+/* Layout */
 .container {
   position: relative;
   z-index: 1;
@@ -102,7 +102,7 @@ body {
   padding: 24px 20px 48px;
 }
 
-/* ── Header ────────────────────────────────────────────────────────────────── */
+/*  Header  */
 .header {
   display: flex;
   align-items: center;
@@ -228,7 +228,7 @@ body {
 }
 .btn-disconnect:hover { color: var(--accent-b); }
 
-/* ── Poll Card ─────────────────────────────────────────────────────────────── */
+/* Poll Card */
 .poll-card {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -263,7 +263,7 @@ body {
   font-size: 14px;
 }
 
-/* ── Vote Grid ─────────────────────────────────────────────────────────────── */
+/* Vote Grid */
 .vote-grid {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
@@ -287,7 +287,7 @@ body {
   color: var(--text-dim);
 }
 
-/* ── Option Cards ──────────────────────────────────────────────────────────── */
+/* Option Cards */
 .option-card {
   background: var(--surface2);
   border: 1px solid var(--border);
@@ -422,7 +422,7 @@ body {
   margin-bottom: 20px;
 }
 
-/* ── Vote Buttons ──────────────────────────────────────────────────────────── */
+/* Vote Buttons */
 .btn-vote {
   width: 100%;
   padding: 12px;
@@ -466,7 +466,7 @@ body {
   transform: none !important;
 }
 
-/* ── Total Bar ─────────────────────────────────────────────────────────────── */
+/* Total Bar */
 .total-bar {
   height: 4px;
   border-radius: 100px;
@@ -497,7 +497,7 @@ body {
   margin-bottom: 24px;
 }
 
-/* ── Status Box ────────────────────────────────────────────────────────────── */
+/*  Status Box  */
 .status-box {
   display: flex;
   align-items: flex-start;
@@ -565,7 +565,7 @@ body {
 
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/* ── Wallet Prompt ─────────────────────────────────────────────────────────── */
+/*  Wallet Prompt  */
 .wallet-prompt {
   text-align: center;
   color: var(--text-dim);
@@ -573,7 +573,7 @@ body {
   margin-top: 16px;
 }
 
-/* ── Footer ────────────────────────────────────────────────────────────────── */
+/*  Footer  */
 .footer {
   display: flex;
   align-items: center;
@@ -595,7 +595,7 @@ body {
 
 .dot { opacity: 0.4; }
 
-/* ── Responsive ────────────────────────────────────────────────────────────── */
+/*  Responsive */
 @media (max-width: 640px) {
   .vote-grid {
     grid-template-columns: 1fr;

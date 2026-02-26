@@ -14,13 +14,13 @@ import {
 } from "@stellar/stellar-sdk";
 import "./App.css";
 
-// ─── Config ───────────────────────────────────────────────────────────────────
+//  Config 
 const CONTRACT_ID = "CC7IYQYSM76SN7EP3QYPYPKZZ4MST6G6CP4AIIM6TNNMUIZRKIHOQX3I";
 const RPC_URL = "https://soroban-testnet.stellar.org";
 const server = new rpc.Server(RPC_URL);
 const SIM_ACCOUNT = "GBYCOYFAW76NBYB5OPKNUUBZY6LHRI7Z43SBMKXJKHVK35Y6QA2CPMAM";
 
-// ─── Error Types ──────────────────────────────────────────────────────────────
+//  Error Types 
 const ERRORS = {
   WALLET_NOT_FOUND: "Wallet not found. Please install Freighter or xBull.",
   WALLET_REJECTED: "Transaction was rejected by the user.",
@@ -52,7 +52,7 @@ const STATUS = {
   ERROR: "error",
 };
 
-// ─── Main App ─────────────────────────────────────────────────────────────────
+//  Main App 
 function App() {
   const [address, setAddress] = useState("");
   const [walletName, setWalletName] = useState("");
@@ -67,7 +67,7 @@ function App() {
   const [txHash, setTxHash] = useState("");
   
 
-  // ── Fetch Results ────────────────────────────────────────────────────────────
+  //  Fetch Results 
   const fetchResults = useCallback(async () => {
     try {
       const contract = new Contract(CONTRACT_ID);
@@ -109,7 +109,7 @@ function App() {
     }
   }, [address]);
 
-  // ── Connect Wallet ───────────────────────────────────────────────────────────
+  // Connect Wallet 
   const connectWallet = async (walletType) => {
     setIsLoading(true);
     setTxStatus(STATUS.IDLE);
@@ -170,7 +170,7 @@ function App() {
     }
   };
 
-  // ── Disconnect Wallet ────────────────────────────────────────────────────────
+  //  Disconnect Wallet 
   const disconnectWallet = () => {
     setAddress("");
     setWalletName("");
@@ -182,7 +182,7 @@ function App() {
     setTxHash("");
   };
 
-  // ── Sign Transaction (handles both wallets) ──────────────────────────────────
+  //  Sign Transaction (handles both wallets) 
   const signTx = async (xdr) => {
     if (activeWallet === "freighter") {
       const result = await signTransaction(xdr, {
@@ -200,7 +200,7 @@ function App() {
     throw new Error("No wallet connected");
   };
 
-  // ── Vote ─────────────────────────────────────────────────────────────────────
+  //  Vote 
   const vote = async (option) => {
     // Error type 1: Wallet not connected
     if (!address) {
@@ -288,14 +288,14 @@ function App() {
     }
   };
 
-  // ── Real-time polling ────────────────────────────────────────────────────────
+  //  Real-time polling
   useEffect(() => {
     fetchResults();
     const interval = setInterval(fetchResults, 5000);
     return () => clearInterval(interval);
   }, [fetchResults]);
 
-  // ── Derived stats ────────────────────────────────────────────────────────────
+  //  Derived stats 
   const total = results.a + results.b;
   const pctA = total === 0 ? 50 : Math.round((results.a / total) * 100);
   const pctB = total === 0 ? 50 : Math.round((results.b / total) * 100);
