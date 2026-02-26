@@ -1,70 +1,187 @@
-# Getting Started with Create React App
+#  Stellar Live Poll
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A real-time on-chain polling app built on the Stellar testnet. Users can connect their wallet and vote for one of two options. Results update live every 5 seconds directly from the blockchain.
 
-## Available Scripts
+--
 
-In the project directory, you can run:
+##  Live Demo
+https://stellar-live-poll-git-master-janhavilipare17s-projects.vercel.app
 
-### `npm start`
+--
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+##  Screenshots
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Frontend
+![Frontend](./screenshots/frontend.png)
 
-### `npm test`
+### Freighter Wallet Connection
+![Freighter Connect](./screenshots/freighter%20connect.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Freighter Signature Request
+![Freighter Signature](./screenshots/freighter%20signature.png)
 
-### `npm run build`
+### Freighter Results
+![Freighter Results](./screenshots/freighter%20result.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### xBull Wallet Connection
+![xBull Connect](./screenshots/xBull%20connect.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### xBull Results
+![xBull Results](./screenshots/xBull%20result.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+##  Features
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+-  Multi-wallet support — Freighter and xBull
+-  Smart contract deployed on Stellar testnet
+-  Real-time vote results (updates every 5 seconds)
+-  Transaction status tracking (Pending → Confirmed)
+-  3 error types handled (wallet not found, rejected, insufficient balance)
+-  Live ledger number display
+-  View transactions on Stellar Explorer
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+##  Contract Details
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- **Deployed Contract Address:**  
+  `CC7IYQYSM76SN7EP3QYPYPKZZ4MST6G6CP4AIIM6TNNMUIZRKIHOQX3I`
 
-## Learn More
+- **Network:** Stellar Testnet
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **View on Explorer:**  
+  [View Contract](https://stellar.expert/explorer/testnet/contract/CC7IYQYSM76SN7EP3QYPYPKZZ4MST6G6CP4AIIM6TNNMUIZRKIHOQX3I)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+##  Transaction Hash
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+A verified contract call (vote) on Stellar testnet:
 
-### Analyzing the Bundle Size
+```
+786ec0cfeb5b6cd325546f9591bea959466c37b998ec515e4d29d5a58c90b86a
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+[View on Stellar Explorer](https://stellar.expert/explorer/testnet/tx/786ec0cfeb5b6cd325546f9591bea959466c37b998ec515e4d29d5a58c90b86a)
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+##  Setup Instructions
 
-### Advanced Configuration
+### Prerequisites
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- Node.js v18+
+- [Freighter Wallet](https://www.freighter.app/) browser extension
+- [xBull Wallet](https://xbull.app/) browser extension (optional)
+- Stellar CLI
 
-### Deployment
+### 1. Clone the repository
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```bash
+git clone https://github.com/janhavilipare17/Stellar-Live-Poll.git
+cd Stellar-Live-Poll
+```
 
-### `npm run build` fails to minify
+### 2. Install dependencies
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```bash
+npm install
+```
+
+### 3. Start the app
+
+```bash
+npm start
+```
+
+The app will open at `http://localhost:3000`
+
+### 4. Connect your wallet
+
+- Open **Freighter** or **xBull** extension
+- Switch network to **Testnet**
+- Fund your address via [Friendbot](https://friendbot.stellar.org/?addr=YOUR_ADDRESS)
+- Click  Freighter or  xBull button in the app
+
+### 5. Vote
+
+- Click **Vote A** (Stellar SCP) or **Vote B** (Ethereum PoS)
+- Approve the transaction in your wallet
+- Watch the results update in real time!
+
+---
+
+##  Smart Contract
+
+The contract is written in Rust using the Soroban SDK.
+
+### Functions
+
+| Function | Description |
+|---|---|
+| `vote_a()` | Cast a vote for Option A |
+| `vote_b()` | Cast a vote for Option B |
+| `get_results()` | Returns `(u32, u32)` — votes for A and B |
+
+### Deploy your own
+
+```bash
+cargo build --target wasm32-unknown-unknown --release
+
+stellar contract deploy \
+  --wasm target/wasm32-unknown-unknown/release/live_poll.wasm \
+  --source alice \
+  --network testnet
+```
+
+---
+
+##  Error Handling
+
+The app handles these error types:
+
+1. **Wallet Not Found** — Freighter or xBull not installed
+2. **Transaction Rejected** — User declined to sign
+3. **Insufficient Balance** — Account not funded on testnet
+
+---
+
+##  Tech Stack
+
+- React 19
+- Stellar SDK (`@stellar/stellar-sdk`)
+- Freighter API (`@stellar/freighter-api`)
+- Soroban Smart Contracts (Rust)
+- Stellar Testnet RPC
+
+---
+
+##  Project Structure
+
+```
+stellar-live-poll/
+├── src/
+│   ├── App.js          # Main React app
+│   ├── App.css         # Styles
+│   ├── index.js
+│   └── index.css
+├── contract/
+│   ├── src/
+│   │   └── lib.rs      # Soroban smart contract
+│   └── Cargo.toml
+├── screenshots/
+│   ├── frontend.png
+│   ├── freighter connect.png
+│   ├── freighter result.png
+│   ├── freighter signature.png
+│   ├── xBull connect.png
+│   └── xBull result.png
+├── public/
+├── package.json
+└── README.md
+```
+
+---
+
+Built for **Stellar Internship Level 2** — Multi-wallet app with deployed contract and real-time event integration.
